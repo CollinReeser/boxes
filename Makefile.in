@@ -1,0 +1,21 @@
+
+SDL_DIR = @SDL_DIR@
+
+SDL_INCLUDE_PATH = ${SDL_DIR}/include
+SDL_LIB_PATH = ${SDL_DIR}/build
+LINK_SDL_SHARED_LIB = -lSDL3 -Wl,-rpath=${SDL_LIB_PATH}
+LINK_SDL_STATIC_LIB = -Wl,-Bstatic -lSDL3 -Wl,-Bdynamic
+
+MDSPAN_DIR = @MDSPAN_DIR@
+
+CXX = @CXX@
+
+all: main
+
+# NOTE:
+#
+# (-) -lstdc++exp is included to support <print>, per:
+#   https://gcc.gnu.org/gcc-14/changes.html
+
+main: main.cpp
+	${CXX} -std=c++23 -g -I${MDSPAN_DIR} -I${SDL_INCLUDE_PATH} -L${SDL_LIB_PATH} -o main main.cpp ${LINK_SDL_SHARED_LIB} -lstdc++exp
