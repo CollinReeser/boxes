@@ -61,8 +61,9 @@ implementation suitable for `#include "mdspan.hpp"` such that the spec for
 Then:
 
     ./configure \
-        SDL_DIR=C:/msys64/<path>/<to>/SDL \
-        MDSPAN_DIR=C:/msys64/<path>/<to>/<mdspan_containing_dir>
+            SDL_DIR=C:/msys64/<path>/<to>/SDL \
+            MDSPAN_DIR=C:/msys64/<path>/<to>/<mdspan_containing_dir>
+    make
 
 #### Building `configure`
 
