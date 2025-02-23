@@ -74,12 +74,15 @@ and `build`.
 - `MDSPAN_DIR`: Path directly to a parent directory containing an `mdspan.hpp`  
 implementation suitable for `#include "mdspan.hpp"` such that the spec for  
 `<mdspan>` is met.
+- `CXX` may need to be specified if otherwise an unable compiler is selected
+by default.
 
 Then:
 
     ./configure \
             SDL_DIR=C:/msys64/<path>/<to>/SDL \
-            MDSPAN_DIR=C:/msys64/<path>/<to>/<mdspan_containing_dir>
+            MDSPAN_DIR=C:/msys64/<path>/<to>/<mdspan_containing_dir> \
+            CXX=C:/msys64/<path>/<to>/bin/g++
     make
 
 #### Building `configure`
