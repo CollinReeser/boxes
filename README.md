@@ -4,6 +4,7 @@
 
 - GCC 14.2.0+ or another >=C++23 compiler with e.g. `<print>` support required.
 - SDL3 required (https://github.com/libsdl-org/SDL).
+- SDL3_net required (https://github.com/libsdl-org/SDL_net).
 - An implementation that satisfies `<mdspan>` is required.
 
 ## MSYS2
@@ -24,6 +25,19 @@ To build SDL3 on MSYS2, see:
     git branch 3.2.4
     https://wiki.libsdl.org/SDL3/README/windows
 
+#### SDL_net
+
+Assuming MSYS2 installed under `C:/msys64`, and SDL3 has been built within
+a `build` dir:
+
+    git clone https://github.com/libsdl-org/SDL_net
+    git checkout d076a0d
+    cd SDL_net
+    mkdir build
+    cd build
+    cmake .. -DSDL3_DIR=C:/msys64/<path>/<to>/SDL/build
+    cmake --build .
+
 #### `<mdspan>`
 
 If not available from your compiler, consider sourcing a reference
@@ -39,8 +53,11 @@ Find and copy these DLLs into the project root directory:
     libstdc++-6.dll
     libwinpthread-1.dll
     SDL3.dll
+    SDL3_net.dll
 
-The SDL DLL should be located in the `build` dir of your built SDL3 tree.
+The SDL DLL should be located in the `build` dir of your built SDL tree.
+
+The SDL_net DLL should be located in the `build` dir of your built SDL_net tree.
 
 The other DLLs can be found in MSYS2 with a sufficient GCC installed, at:
 
